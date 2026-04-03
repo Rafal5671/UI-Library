@@ -1,0 +1,99 @@
+.vx-pagination {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.vx-pagination--sm { gap: var(--vx-space-1); }
+.vx-pagination--md { gap: var(--vx-space-1); }
+.vx-pagination--lg { gap: var(--vx-space-2); }
+
+.vx-pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--vx-radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: all var(--vx-duration-fast) var(--vx-ease-standard);
+}
+
+.vx-pagination__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.vx-pagination__btn--sm { min-width: 28px; height: 28px; padding: 0 var(--vx-space-2); font-size: var(--vx-text-sm); }
+.vx-pagination__btn--md { min-width: 36px; height: 36px; padding: 0 var(--vx-space-2); font-size: var(--vx-text-md); }
+.vx-pagination__btn--lg { min-width: 44px; height: 44px; padding: 0 var(--vx-space-3); font-size: var(--vx-text-md); }
+
+.vx-pagination__nav {
+  background: var(--vx-surface-container);
+  color: var(--vx-on-surface-variant);
+  border: 1.5px solid var(--vx-outline);
+}
+
+.vx-pagination__nav:not(:disabled):hover {
+  background: var(--vx-surface-container-high);
+  border-color: var(--vx-outline-strong);
+}
+
+.vx-pagination__page {
+  background: transparent;
+  color: var(--vx-on-surface-variant);
+  border: 1.5px solid transparent;
+}
+
+.vx-pagination__page:not(:disabled):not(.vx-pagination__page--active):hover {
+  background: var(--vx-surface-container);
+}
+
+.vx-pagination__page--active.vx-pagination--solid-active {
+  background: var(--vx-primary);
+  color: var(--vx-on-primary);
+  border-color: var(--vx-primary);
+  box-shadow: var(--vx-shadow-primary);
+}
+
+.vx-pagination--outline .vx-pagination__page {
+  border-color: transparent;
+}
+
+.vx-pagination__page--active.vx-pagination--outline-active {
+  background: transparent;
+  color: var(--vx-primary);
+  border-color: var(--vx-primary);
+  font-weight: 700;
+}
+
+.vx-pagination__page--active.vx-pagination--ghost-active {
+  background: var(--vx-primary-container);
+  color: var(--vx-primary);
+  border-color: transparent;
+  font-weight: 700;
+}
+
+.vx-pagination__page--active.vx-pagination--minimal-active {
+  background: transparent;
+  color: var(--vx-primary);
+  border-color: transparent;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.vx-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vx-on-surface-subtle);
+  font-size: var(--vx-text-md);
+  cursor: default;
+  user-select: none;
+}
+
+.vx-pagination__ellipsis--sm { min-width: 28px; height: 28px; }
+.vx-pagination__ellipsis--md { min-width: 36px; height: 36px; }
+.vx-pagination__ellipsis--lg { min-width: 44px; height: 44px; }

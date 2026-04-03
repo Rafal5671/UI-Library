@@ -1,0 +1,103 @@
+.vx-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vx-space-1);
+}
+
+.vx-progress__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vx-progress__label {
+  font-size: var(--vx-text-sm);
+  color: var(--vx-on-surface-variant);
+}
+
+.vx-progress__value {
+  font-size: var(--vx-text-sm);
+  font-weight: 600;
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.vx-progress__track {
+  border-radius: var(--vx-radius-full);
+  background: var(--vx-surface-container-high);
+  overflow: hidden;
+}
+
+.vx-progress__track--hidden {
+  background: transparent;
+}
+
+.vx-progress__fill {
+  height: 100%;
+  border-radius: var(--vx-radius-full);
+  transition: width var(--vx-duration-slow) var(--vx-ease-decelerate);
+  position: relative;
+  overflow: hidden;
+}
+
+.vx-progress__fill--gradient {
+  background: linear-gradient(90deg, var(--vx-primary), var(--vx-accent));
+}
+
+.vx-progress__fill--primary   { background: var(--vx-primary); }
+.vx-progress__fill--accent    { background: var(--vx-accent); }
+.vx-progress__fill--success   { background: var(--vx-success); }
+.vx-progress__fill--error     { background: var(--vx-error); }
+.vx-progress__fill--warning   { background: var(--vx-warning); }
+.vx-progress__fill--secondary { background: var(--vx-secondary); }
+
+.vx-progress__value--primary   { color: var(--vx-primary); }
+.vx-progress__value--accent    { color: var(--vx-accent); }
+.vx-progress__value--success   { color: var(--vx-success); }
+.vx-progress__value--error     { color: var(--vx-error); }
+.vx-progress__value--warning   { color: var(--vx-warning); }
+.vx-progress__value--secondary { color: var(--vx-secondary); }
+
+.vx-progress__track--xs { height: 4px; }
+.vx-progress__track--sm { height: 6px; }
+.vx-progress__track--md { height: 10px; }
+.vx-progress__track--lg { height: 16px; }
+
+.vx-progress__fill--striped {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.18) 0px,
+    rgba(255, 255, 255, 0.18) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  background-size: 22px 22px;
+}
+
+.vx-progress__fill--animated-stripes {
+  animation: vx-stripes 0.6s linear infinite;
+}
+
+.vx-progress__fill--shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: vx-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes vx-stripes {
+  from { background-position: 0 0; }
+  to   { background-position: 22px 0; }
+}
+
+@keyframes vx-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}

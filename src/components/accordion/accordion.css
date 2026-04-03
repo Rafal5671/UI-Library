@@ -1,0 +1,78 @@
+.vx-accordion {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--vx-font);
+}
+
+.vx-accordion-divider {
+  height: 1px;
+  background: var(--vx-outline);
+  flex-shrink: 0;
+}
+
+.vx-accordion-item {
+  background: transparent;
+  overflow: hidden;
+}
+
+.vx-accordion-item--disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.vx-accordion-trigger {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--vx-space-5) var(--vx-space-1);
+  cursor: pointer;
+  color: var(--vx-on-surface);
+  font-size: var(--vx-text-md);
+  font-weight: 600;
+  line-height: 1.4;
+  gap: var(--vx-space-4);
+  transition: color var(--vx-duration-fast) var(--vx-ease-standard);
+  box-sizing: border-box;
+}
+
+.vx-accordion-trigger:hover {
+  color: var(--vx-on-surface-variant);
+}
+
+.vx-accordion-trigger:focus-visible {
+  outline: 2px solid var(--vx-accent);
+  outline-offset: 2px;
+  border-radius: var(--vx-radius-xs);
+}
+
+.vx-accordion-trigger__label {
+  flex: 1;
+}
+
+.vx-accordion-trigger__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--vx-on-surface-subtle);
+  transition: transform var(--vx-duration-normal) var(--vx-ease-spring);
+}
+
+.vx-accordion-item--open .vx-accordion-trigger__icon {
+  transform: rotate(180deg);
+  color: var(--vx-on-surface-variant);
+}
+
+.vx-accordion-body {
+  overflow: hidden;
+  transition: height 260ms var(--vx-ease-decelerate, cubic-bezier(0, 0, 0, 1));
+}
+
+.vx-accordion-body__inner {
+  padding: 0 var(--vx-space-1) var(--vx-space-5);
+  color: var(--vx-on-surface-variant);
+  font-size: var(--vx-text-sm);
+  line-height: 1.7;
+}

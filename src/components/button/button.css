@@ -1,0 +1,216 @@
+@keyframes vx-ripple {
+  from { transform: scale(0); opacity: 0.5; }
+  to   { transform: scale(4.5); opacity: 0; }
+}
+
+.vx-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vx-space-2);
+  font-family: var(--vx-font);
+  font-size: var(--vx-text-md);
+  font-weight: 500;
+  letter-spacing: .01em;
+  line-height: 1;
+  border: none;
+  border-radius: var(--vx-radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    box-shadow var(--vx-duration-normal) var(--vx-ease-standard),
+    background  var(--vx-duration-fast)   var(--vx-ease-standard),
+    transform   var(--vx-duration-fast)   var(--vx-ease-spring);
+}
+
+.vx-btn:hover  { transform: translateY(-1px); }
+.vx-btn:active { transform: scale(0.97) translateY(0); }
+
+.vx-btn:disabled,
+.vx-btn[aria-disabled="true"] {
+  opacity: .45;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+
+.vx-btn .vx-ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 72px; height: 72px;
+  margin: -36px 0 0 -36px;
+  pointer-events: none;
+  animation: vx-ripple var(--vx-duration-slow) var(--vx-ease-decelerate) forwards;
+}
+
+.vx-btn-filled {
+  background: var(--vx-primary);
+  color: var(--vx-on-primary);
+  box-shadow: var(--vx-shadow-primary);
+}
+.vx-btn-filled:hover {
+  background: var(--vx-primary-hover);
+  box-shadow: var(--vx-shadow-primary), var(--vx-shadow-md);
+}
+.vx-btn-filled .vx-ripple { background: oklch(1 0 0 / 0.22); }
+
+.vx-btn-tonal {
+  background: var(--vx-primary-container);
+  color: var(--vx-on-primary-container);
+  box-shadow: var(--vx-shadow-sm);
+}
+.vx-btn-tonal:hover { box-shadow: var(--vx-shadow-md); }
+.vx-btn-tonal .vx-ripple { background: oklch(0.46 0.22 265 / 0.12); }
+
+.vx-btn-outlined {
+  background: transparent;
+  color: var(--vx-primary);
+  border: 1.5px solid var(--vx-outline);
+  box-shadow: none;
+}
+.vx-btn-outlined:hover {
+  background: var(--vx-primary-container);
+  border-color: var(--vx-primary);
+  box-shadow: var(--vx-shadow-sm);
+}
+.vx-btn-outlined .vx-ripple { background: oklch(0.46 0.22 265 / 0.10); }
+
+.vx-btn-ghost {
+  background: transparent;
+  color: var(--vx-primary);
+  box-shadow: none;
+}
+.vx-btn-ghost:hover {
+  background: var(--vx-primary-container);
+  box-shadow: none;
+  transform: none;
+}
+.vx-btn-ghost .vx-ripple { background: oklch(0.46 0.22 265 / 0.10); }
+
+.vx-btn-elevated {
+  background: var(--vx-surface-container);
+  color: var(--vx-primary);
+  box-shadow: var(--vx-shadow-md);
+}
+.vx-btn-elevated:hover { box-shadow: var(--vx-shadow-lg); }
+.vx-btn-elevated .vx-ripple { background: oklch(0.46 0.22 265 / 0.08); }
+
+.vx-btn-destructive {
+  background: var(--vx-error);
+  color: var(--vx-on-error);
+  box-shadow: 0 4px 14px oklch(0.56 0.22 25 / 0.36), 0 2px 4px oklch(0.56 0.22 25 / 0.18);
+}
+.vx-btn-destructive:hover {
+  background: var(--vx-error-hover);
+  box-shadow: 0 6px 20px oklch(0.56 0.22 25 / 0.44), 0 2px 6px oklch(0.56 0.22 25 / 0.22);
+}
+.vx-btn-destructive .vx-ripple { background: oklch(1 0 0 / 0.22); }
+
+.vx-btn-sm {
+  padding: 6px var(--vx-space-4);
+  height: 32px;
+  min-height: 32px;
+  font-size: var(--vx-text-sm);
+}
+
+.vx-btn-md {
+  padding: 10px var(--vx-space-5);
+  height: 40px;
+  min-height: 40px;
+  font-size: var(--vx-text-md);
+}
+
+.vx-btn-lg {
+  padding: 13px var(--vx-space-8);
+  height: 52px;
+  min-height: 52px;
+  font-size: var(--vx-text-lg);
+}
+.vx-btn-sm:not(.vx-btn-lg):not(.vx-btn-md) { height: 32px; }
+.vx-btn-lg:not(.vx-btn-sm):not(.vx-btn-md) { height: 52px; }
+
+.vx-btn-icon-only {
+  padding: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--vx-radius-full);
+}
+.vx-btn-icon-only.vx-btn-sm { width: 32px; height: 32px; }
+.vx-btn-icon-only.vx-btn-md { width: 40px; height: 40px; }
+.vx-btn-icon-only.vx-btn-lg { width: 52px; height: 52px; }
+
+.vx-btn-no-radius { border-radius: 0; }
+
+.vx-icon-btn {
+  position: relative;
+  overflow: hidden;
+  width: 40px; height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: var(--vx-radius-full);
+  background: transparent;
+  color: var(--vx-on-surface-variant);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--vx-font);
+  transition:
+    background  var(--vx-duration-fast)   var(--vx-ease-standard),
+    color       var(--vx-duration-fast)   var(--vx-ease-standard),
+    transform   var(--vx-duration-fast)   var(--vx-ease-spring),
+    box-shadow  var(--vx-duration-normal) var(--vx-ease-standard);
+  -webkit-tap-highlight-color: transparent;
+}
+.vx-icon-btn:hover {
+  background: var(--vx-surface-container);
+  transform: translateY(-1px);
+  box-shadow: var(--vx-shadow-sm);
+}
+.vx-icon-btn:active { transform: scale(0.92); box-shadow: none; }
+.vx-icon-btn.selected {
+  color: var(--vx-primary);
+  background: var(--vx-primary-container);
+  box-shadow: var(--vx-shadow-sm);
+}
+.vx-icon-btn .vx-ripple { background: oklch(0.46 0.22 265 / 0.12); }
+
+.vx-fab {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vx-space-2);
+  width: 56px; height: 56px;
+  border: none;
+  border-radius: var(--vx-radius-lg);
+  background: var(--vx-primary);
+  color: var(--vx-on-primary);
+  cursor: pointer;
+  box-shadow: var(--vx-shadow-primary);
+  font-family: var(--vx-font);
+  font-size: var(--vx-text-md);
+  font-weight: 500;
+  transition:
+    box-shadow var(--vx-duration-normal) var(--vx-ease-standard),
+    transform  var(--vx-duration-fast)   var(--vx-ease-spring);
+  -webkit-tap-highlight-color: transparent;
+}
+.vx-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--vx-shadow-primary), var(--vx-shadow-lg);
+}
+.vx-fab:active { transform: scale(0.95); box-shadow: var(--vx-shadow-sm); }
+.vx-fab .vx-ripple { background: oklch(1 0 0 / 0.20); }
+.vx-fab-sm { width: 40px; height: 40px; border-radius: var(--vx-radius-md); }
+.vx-fab-lg { width: 96px; height: 96px; border-radius: var(--vx-radius-xl); }
+.vx-fab-extended { width: auto; padding: 0 var(--vx-space-5); }
